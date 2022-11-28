@@ -40,14 +40,14 @@ combinations = [[0, 0, 0],
                 [1, 1, 0]]
 # same dataset for testing and training cuz it's not important to have separate sets
 # when I just want to see if my network can learn (if autograd works) - spoiler alert: it doesn't work
-dataset = np.repeat(combinations, 1000, 0)
+dataset = np.repeat(combinations, 100, 0)
 np.random.shuffle(dataset)
 # dataset = dataset[0:1]
 nnet = NNET()
 
 nnet.train(dataset)
-# x = Tensor(dataset[78][:2].reshape(2, 1))
-# y = nnet.label_to_tensor(dataset[78][0])
-# out = nnet.forward(x)
-# mse = out.mse(y)
-# print(x, y, out)
+x = Tensor(dataset[78][:2].reshape(2, 1))
+y = nnet.label_to_tensor(dataset[78][0])
+out = nnet.forward(x)
+mse = out.mse(y)
+print(x, y, out)
